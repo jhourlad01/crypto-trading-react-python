@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import './Avatar.scss'
 
 function Avatar() {
@@ -40,6 +41,9 @@ function Avatar() {
       {isOpen && (
         <div className="avatar-dropdown">
           <div className="dropdown-menu">
+            <Link to="/dashboard" className="dropdown-item" onClick={() => setIsOpen(false)}>
+              Dashboard
+            </Link>
             <button className="dropdown-item" onClick={handleLogout}>
               Logout
             </button>
