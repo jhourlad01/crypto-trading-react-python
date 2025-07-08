@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Client: lint, test, audit
+cd client && npm run lint && npm run test:run && npm audit
+
+# API: lint, test
+cd ../api && python -m flake8 . && python -m pytest 
