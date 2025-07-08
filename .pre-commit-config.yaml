@@ -1,0 +1,35 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+
+  - repo: local
+    hooks:
+      - id: python-lint
+        name: Python Lint (flake8)
+        entry: flake8 api/
+        language: system
+        types: [python]
+      - id: python-test
+        name: Python Test (pytest)
+        entry: pytest api/
+        language: system
+        types: [python]
+      - id: js-lint
+        name: JS Lint (eslint)
+        entry: npm run lint --prefix client/
+        language: system
+        types: [javascript]
+      - id: js-test
+        name: JS Test (vitest)
+        entry: npm run test -- --run --dir client/
+        language: system
+        types: [javascript]
+      - id: npm-audit
+        name: NPM Audit
+        entry: npm audit --prefix client/
+        language: system
+        types: [javascript] 
