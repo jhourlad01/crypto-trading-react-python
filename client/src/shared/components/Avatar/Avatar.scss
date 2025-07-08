@@ -11,13 +11,17 @@
 }
 
 .avatar-dropdown {
-  @apply absolute top-full right-0 mt-3;
-  z-index: 9999;
+  position: fixed;
+  top: 64px;
+  right: 2rem;
+  left: auto;
+  margin-top: 0;
+  z-index: 2147483647 !important;
 }
 
 .dropdown-menu {
   @apply bg-white/95 backdrop-blur-ios rounded-2xl shadow-2xl min-w-36 overflow-hidden border border-black/10;
-  z-index: 10000;
+  z-index: 2147483647 !important;
 }
 
 .dropdown-item {

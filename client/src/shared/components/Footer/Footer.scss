@@ -1,0 +1,7 @@
+.footer {
+  @apply bg-white/95 backdrop-blur-ios text-ios-gray px-6 py-4 text-center border-t border-black/10 flex-shrink-0;
+}
+
+.footer p {
+  @apply m-0 text-sm;
+} 

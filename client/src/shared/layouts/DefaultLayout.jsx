@@ -1,20 +1,15 @@
 import './DefaultLayout.scss'
-import Brand from '../components/Brand/Brand'
-import Avatar from '../components/Avatar/Avatar'
+import Header from '../components/Header/Header'
+import Footer from '../components/Footer/Footer'
 
 function DefaultLayout({ children }) {
   return (
     <div className="app">
-      <header className="header">
-        <Brand />
-        <Avatar />
-      </header>
+      <Header />
       <main className="content">
         {children}
       </main>
-      <footer className="footer">
-        <p>&copy; 2024 CryptoClient</p>
-      </footer>
+      <Footer />
     </div>
   )
 }
