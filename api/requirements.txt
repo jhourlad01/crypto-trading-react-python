@@ -2,4 +2,5 @@ fastapi
 uvicorn
 httpx
 pytest
-flake8 
+flake8
+python-dotenv 

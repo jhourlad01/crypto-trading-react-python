@@ -1,5 +1,11 @@
 # CryptoApi
 
+## Feature-based Structure
+
+- `features/` — Feature modules (e.g. dashboard, home, auth, trading)
+- `shared/`   — Shared utilities, dependencies, or models
+- `core/`     — Core API setup, config, and app instance
+
 ## Running the API
 
 ```bash

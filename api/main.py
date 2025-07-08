@@ -1,5 +1,14 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+HOST = os.getenv("HOST", "127.0.0.1")
+PORT = int(os.getenv("PORT", 8000))
+cors_origin = os.getenv("CORS_ORIGIN", "http://localhost:5173")
+allow_origins = ["*"] if cors_origin == "*" else [cors_origin]
 
 app = FastAPI(
     title="CryptoApi",
@@ -10,7 +19,7 @@ app = FastAPI(
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # React dev server
+    allow_origins=allow_origins,  # Set from .env, supports '*'
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
