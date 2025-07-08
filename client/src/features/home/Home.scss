@@ -1,0 +1,428 @@
+.home {
+  height: 100vh;
+  width: 100vw;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.hero-banner,
+.features-section,
+.stats-section,
+.cta-section,
+.testimonials-section,
+.news-section,
+.footer-cta {
+  min-height: 100vh;
+  max-width: 100vw;
+  box-sizing: border-box;
+  scroll-snap-align: start;
+  position: relative;
+}
+
+.hero-banner {
+  @apply w-full h-full bg-cover bg-center bg-no-repeat flex items-center justify-center;
+  background: #eaf6ff;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  position: relative;
+  z-index: 0;
+}
+
+.hero-network-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.32;
+}
+
+@media (max-width: 600px) {
+  .hero-banner {
+    padding: 1.2rem 0.5rem;
+  }
+}
+
+.hero-content {
+  @apply text-center text-white max-w-2xl p-8;
+}
+
+.hero-content h1 {
+  @apply text-6xl mb-4 font-bold tracking-tight;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.02em;
+}
+
+.hero-content p {
+  @apply text-xl mb-10 opacity-95 font-normal leading-relaxed;
+}
+
+.cta-button {
+  @apply bg-gradient-to-r from-[#007aff] to-[#5856d6] text-white border-none px-10 py-4 text-lg rounded-full cursor-pointer transition-all duration-300 ease-in-out font-semibold shadow-lg hover:shadow-xl hover:-translate-y-0.5;
+}
+
+/* Features Section */
+.features-section {
+  @apply flex items-center;
+  min-height: 100vh;
+  background: #f2f2f7;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.container {
+  @apply max-w-7xl mx-auto px-8;
+}
+
+.features-section h2 {
+  @apply text-center text-4xl mb-12 text-ios-dark font-bold tracking-tight;
+  letter-spacing: -0.02em;
+}
+
+.features-grid {
+  @apply grid gap-8;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.feature-card {
+  @apply ios-card p-10 text-center;
+}
+
+.feature-icon {
+  @apply flex items-center justify-center text-5xl mb-6;
+}
+
+.feature-card h3 {
+  @apply text-2xl mb-4 font-semibold;
+  color: #1d1d1f;
+}
+
+.feature-card p {
+  color: #222;
+  @apply leading-relaxed text-sm;
+}
+
+/* Stats Section */
+.stats-section {
+  @apply flex items-center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1d1d1f, #2c2c2e);
+  background-attachment: fixed;
+  position: relative;
+}
+
+.stats-grid {
+  @apply grid gap-12 text-center;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.stat-item {
+  @apply p-6;
+}
+
+.stat-number {
+  @apply text-5xl font-bold mb-2 tracking-tight;
+  background: linear-gradient(135deg, #007aff, #5856d6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+}
+
+.stat-label {
+  color: #e5e7eb;
+  @apply text-lg font-medium;
+}
+
+/* CTA Section */
+.cta-section {
+  @apply flex items-center text-center;
+  min-height: 100vh;
+  background: #eaf6ff;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.cta-section h2 {
+  @apply text-4xl mb-4 font-bold tracking-tight;
+  color: #1d1d1f;
+  letter-spacing: -0.02em;
+}
+
+.cta-section p {
+  color: #222;
+  @apply text-xl mb-10 font-normal;
+}
+
+.cta-buttons {
+  @apply flex gap-4 justify-center flex-wrap;
+}
+
+.primary-button {
+  @apply ios-button;
+}
+
+.secondary-button {
+  @apply bg-transparent text-ios-dark border-2 border-ios-dark px-10 py-4 text-lg rounded-full cursor-pointer transition-all duration-300 ease-in-out font-semibold hover:bg-ios-dark hover:text-white hover:-translate-y-0.5;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  @apply flex items-center;
+  min-height: 100vh;
+  background: #fff;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.testimonials-section h2 {
+  @apply text-center text-4xl mb-12 font-bold tracking-tight;
+  color: #1d1d1f;
+}
+
+.testimonials-grid {
+  @apply grid gap-8;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.testimonial-card {
+  @apply bg-ios-light p-8 rounded-ios border-l-4 border-ios-blue;
+}
+
+.testimonial-content p {
+  color: #222;
+  @apply italic leading-relaxed mb-6;
+}
+
+.testimonial-author {
+  @apply flex items-center gap-4;
+}
+
+.author-avatar {
+  @apply text-3xl;
+}
+
+.author-info h4 {
+  color: #1d1d1f;
+  @apply m-0 text-lg font-semibold;
+}
+
+.author-info span {
+  color: #5856d6;
+  @apply text-sm;
+}
+
+/* News Section */
+.news-section {
+  @apply flex items-center;
+  min-height: 100vh;
+  background: #f2f2f7;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.news-section h2 {
+  @apply text-center text-4xl mb-12 font-bold tracking-tight;
+  color: #1d1d1f;
+}
+
+.news-grid {
+  @apply grid gap-8;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.news-card {
+  @apply ios-card p-8;
+}
+
+.news-image {
+  @apply flex items-center justify-center text-5xl mb-4;
+}
+
+.news-content h3 {
+  color: #1d1d1f;
+  @apply text-xl mb-4 font-semibold;
+}
+
+.news-content p {
+  color: #222;
+  @apply leading-relaxed mb-4;
+}
+
+.news-date {
+  color: #86868b;
+  @apply text-sm;
+}
+
+/* Footer CTA */
+.footer-cta {
+  @apply flex items-center;
+  min-height: 100vh;
+  background: linear-gradient(90deg, #1d1d1f, #23232a);
+  background-attachment: fixed;
+  position: relative;
+}
+
+.footer-content {
+  @apply flex justify-between items-center flex-wrap gap-8;
+}
+
+.footer-text h2 {
+  color: #fff;
+  @apply text-3xl mb-2 font-bold;
+}
+
+.footer-text p {
+  color: #e5e7eb;
+  @apply text-lg font-normal;
+}
+
+.footer-actions {
+  @apply flex gap-4 flex-wrap;
+}
+
+.outline-button {
+  @apply bg-transparent text-white border-2 border-white px-10 py-4 text-lg rounded-full cursor-pointer transition-all duration-300 ease-in-out font-semibold hover:bg-white hover:text-ios-dark;
+}
+
+// Fade-in-up animation for cards
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Enhance glassmorphism for cards and nav
+.ios-card, .testimonial-card, .news-card {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(16px) saturate(180%);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255,255,255,0.18);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.ios-card:hover, .testimonial-card:hover, .news-card:hover {
+  box-shadow: 0 16px 40px 0 rgba(31, 38, 135, 0.22);
+  transform: translateY(-8px) scale(1.03);
+}
+
+.ios-header {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(12px) saturate(180%);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+// Buttons
+.cta-button, .primary-button, .secondary-button, .outline-button {
+  box-shadow: 0 4px 16px 0 rgba(0,0,0,0.10);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.cta-button:hover, .primary-button:hover, .secondary-button:hover, .outline-button:hover {
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+  transform: translateY(-4px) scale(1.04);
+} 
+
+.hero-content-box {
+  background: #fff;
+  border-radius: 2rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  padding: 3rem 2.5rem;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* No blur for maximum text clarity */
+  position: relative;
+  z-index: 10;
+}
+
+@media (max-width: 600px) {
+  .hero-content-box {
+    max-width: 98vw;
+    padding: 2rem 1rem;
+  }
+}
+
+.hero-heading {
+  background: none !important;
+  color: #3a3a3c !important;
+  font-weight: 900;
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  will-change: transform;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.hero-subtext {
+  color: #222;
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  opacity: 0.95;
+}
+
+.hero-content .cta-button {
+  background: linear-gradient(90deg, #007aff, #5856d6);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 999px;
+  padding: 0.9rem 2.5rem;
+  box-shadow: 0 4px 16px 0 rgba(0,0,0,0.10);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.hero-content .cta-button:hover {
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+  transform: translateY(-4px) scale(1.04);
+} 
+
+.floating-blob {
+  z-index: 2;
+} 
+
+.parallax-section {
+  will-change: transform;
+  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
+  position: relative;
+} 
+
+.parallax-bg {
+  position: absolute;
+  inset: 0;
+  background: #eaf6ff;
+  z-index: 0;
+} 
+
+.hero-banner .parallax-bg {
+  background: #eaf6ff;
+}
+.features-section .parallax-bg {
+  background: #f2f2f7;
+}
+.stats-section .parallax-bg {
+  background: linear-gradient(135deg, #1d1d1f, #2c2c2e);
+}
+.cta-section .parallax-bg {
+  background: #eaf6ff;
+}
+.testimonials-section .parallax-bg {
+  background: #fff;
+}
+.news-section .parallax-bg {
+  background: #f2f2f7;
+}
+.footer-cta .parallax-bg {
+  background: linear-gradient(90deg, #1d1d1f, #23232a);
+} 
