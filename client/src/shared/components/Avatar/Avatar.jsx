@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { LayoutDashboard, LogOut } from 'lucide-react'
 import './Avatar.scss'
 
 function Avatar() {
@@ -42,9 +43,11 @@ function Avatar() {
         <div className="avatar-dropdown">
           <div className="dropdown-menu">
             <Link to="/dashboard" className="dropdown-item" onClick={() => setIsOpen(false)}>
+              <span className="dropdown-icon"><LayoutDashboard size={18} color="#111" /></span>
               Dashboard
             </Link>
             <button className="dropdown-item" onClick={handleLogout}>
+              <span className="dropdown-icon"><LogOut size={18} color="#111" /></span>
               Logout
             </button>
           </div>

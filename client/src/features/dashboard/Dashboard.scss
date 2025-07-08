@@ -2,7 +2,10 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  padding: 4rem 0 2rem 0;
+  height: 100%;
+  min-height: 0;
+  justify-content: flex-start;
+  padding: 0 0 2rem 0;
 }
 
 .dashboard-table-title {
@@ -198,9 +201,17 @@
 .crypto-table th:nth-child(3),
 .crypto-table th:nth-child(4),
 .crypto-table th:nth-child(5),
+.crypto-table th:nth-child(6),
 .crypto-table td:nth-child(2),
 .crypto-table td:nth-child(3),
 .crypto-table td:nth-child(4),
-.crypto-table td:nth-child(5) {
+.crypto-table td:nth-child(5),
+.crypto-table td:nth-child(6) {
+  font-family: 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+} 
+
+.crypto-table th:nth-child(6),
+.crypto-table td:nth-child(6) {
+  text-align: right;
   font-family: 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 } 

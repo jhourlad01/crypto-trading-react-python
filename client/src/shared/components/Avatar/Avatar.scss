@@ -13,17 +13,30 @@
 .avatar-dropdown {
   position: fixed;
   top: 64px;
-  right: 2rem;
+  right: 1.5rem;
   left: auto;
   margin-top: 0;
   z-index: 2147483647 !important;
 }
 
 .dropdown-menu {
-  @apply bg-white/95 backdrop-blur-ios rounded-2xl shadow-2xl min-w-36 overflow-hidden border border-black/10;
+  @apply bg-white/95 backdrop-blur-ios rounded-2xl shadow-2xl overflow-hidden border border-black/10;
   z-index: 2147483647 !important;
 }
 
 .dropdown-item {
-  @apply w-full p-4 bg-transparent border-none text-left cursor-pointer text-ios-dark transition-colors duration-200 text-sm font-medium hover:bg-ios-blue/10;
+  @apply w-full py-4 px-6 bg-transparent border-none text-left cursor-pointer text-ios-dark transition-colors duration-200 text-sm font-medium hover:bg-ios-blue/10;
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  width: 100%;
+  box-sizing: border-box;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.dropdown-icon {
+  margin-right: 0.8rem;
+  font-size: 1rem;
+  vertical-align: middle;
 } 
