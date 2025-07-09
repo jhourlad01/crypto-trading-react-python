@@ -20,7 +20,6 @@ httptools==0.6.4
 httpx==0.28.1
 idna==3.10
 iniconfig==2.1.0
-itsdangerous==2.2.0
 license-expression==30.4.3
 markdown-it-py==3.0.0
 mccabe==0.7.0

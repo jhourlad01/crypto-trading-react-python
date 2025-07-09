@@ -1,4 +1,5 @@
-# Shared models and utilities will go here
+
+
 from pydantic import BaseModel
 from typing import Optional
 
@@ -7,6 +8,7 @@ class CoinData(BaseModel):
     id: str
     symbol: str
     name: str
+    image: Optional[str] = None
     price_usd: Optional[float] = None
     percent_change_24h: Optional[float] = None
     market_cap_usd: Optional[float] = None
@@ -18,4 +20,5 @@ class CoinData(BaseModel):
     last_updated: Optional[str] = None
     forecast24h: Optional[float] = None
     forecast7d: Optional[float] = None
-    # Add more fields as needed for your use case
+    investment: Optional[float] = None
+    gain: Optional[float] = None

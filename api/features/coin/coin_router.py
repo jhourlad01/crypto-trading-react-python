@@ -2,9 +2,9 @@ from fastapi import APIRouter, HTTPException, Depends
 from .coin_service import CoinService
 from .coin_provider import CoinDataProvider
 from .coin_provider_registry import PROVIDER_REGISTRY
-from shared.models import CoinData
+from features.coin.models.coin_data import CoinData
 import os
-
+from features.auth.auth_jwt import verify_jwt
 
 router = APIRouter(prefix="/coins", tags=["coins"])
 
@@ -30,6 +30,7 @@ def get_coin_data_provider() -> CoinDataProvider:
 @router.get("", response_model=list[CoinData])
 async def get_top_coins(
     provider: CoinDataProvider = Depends(get_coin_data_provider),
+    # user=Depends(verify_jwt),  # JWT auth removed for public access
 ):
     service = CoinService(provider)
     try:
@@ -40,7 +41,9 @@ async def get_top_coins(
 
 @router.get("/{coin_id}", response_model=CoinData)
 async def get_coin(
-    coin_id: str, provider: CoinDataProvider = Depends(get_coin_data_provider)
+    coin_id: str,
+    provider: CoinDataProvider = Depends(get_coin_data_provider),
+    user=Depends(verify_jwt)
 ):
     service = CoinService(provider)
     try:

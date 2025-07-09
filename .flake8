@@ -1,0 +1,16 @@
+[flake8]
+exclude = \
+    node_modules,\
+    venv,\
+    .venv,\
+    __pycache__,\
+    migrations,\
+    *.pyc,\
+    .git,\
+    dist,\
+    build,\
+    .eggs,\
+    *.egg-info,\
+    .pytest_cache,\
+    .tox
+max-line-length = 100
