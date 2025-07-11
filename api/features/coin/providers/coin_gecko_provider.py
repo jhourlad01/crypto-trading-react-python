@@ -28,7 +28,8 @@ class CoinGeckoProvider(CoinDataProvider):
             data = response.json()
 
         market_data = data.get("market_data", {})
-        historical_data = await self.get_normalized_historical_data(coin_id)
+        # Try to use historical data from the main response if available
+        historical_data = await self.get_normalized_historical_data(coin_id, data)
         forecasts = self.trading_service.calculate_forecasts(historical_data)
         return CoinData(
             id=data.get("id", ""),
@@ -56,7 +57,7 @@ class CoinGeckoProvider(CoinDataProvider):
             "order": "market_cap_desc",
             "per_page": count,
             "page": 1,
-            "sparkline": "false"
+            "sparkline": "true"
         }
         async with httpx.AsyncClient() as client:
             response = await client.get(
@@ -66,8 +67,9 @@ class CoinGeckoProvider(CoinDataProvider):
             coins = response.json()
         result = []
         for coin in coins:
-            historical_data = await self.get_normalized_historical_data(coin.get("id", ""))
-            forecasts = self.trading_service.calculate_forecasts(historical_data)
+            # Use sparkline_7d.price for normalization/forecast
+            prices = coin.get("sparkline_in_7d", {}).get("price", [])
+            forecasts = self.trading_service.calculate_forecasts(prices)
             result.append(CoinData(
                 id=coin.get("id", ""),
                 symbol=coin.get("symbol", "").upper(),
@@ -89,14 +91,19 @@ class CoinGeckoProvider(CoinDataProvider):
             ))
         return result
 
-    async def get_normalized_historical_data(self, coin_id: str) -> list[float]:
-        # Fetch last 90 daily closing prices from CoinGecko
+    async def get_normalized_historical_data(self, coin_id: str, data=None) -> list[float]:
+        # Try to use historical data from the provided data if available
+        if data and "market_data" in data and "sparkline_7d" in data["market_data"]:
+            # Example: use sparkline_7d or similar if available
+            prices = data["market_data"]["sparkline_7d"].get("price", [])
+            if prices:
+                return prices
+        # Otherwise, fetch from CoinGecko
         url = COINGECKO_MARKET_CHART_URL.format(coin_id)
         params = {"vs_currency": "usd", "days": 90, "interval": "daily"}
         async with httpx.AsyncClient() as client:
             resp = await client.get(url, params=params)
             resp.raise_for_status()
             data = resp.json()
-        # CoinGecko returns 'prices': [[timestamp, price], ...]
         prices = [point[1] for point in data.get("prices", [])]
         return prices
