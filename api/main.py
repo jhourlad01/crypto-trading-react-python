@@ -8,10 +8,10 @@ from features.coin.coin_router import router as coin_router
 load_dotenv()
 print('DEBUG: COIN_DATA_PROVIDER =', os.getenv('COIN_DATA_PROVIDER'))
 
-HOST = os.getenv("HOST")
-PORT = os.getenv("PORT")
+HOST = os.getenv("API_HOST", "0.0.0.0")
+PORT = os.getenv("API_PORT", "8000")
 if not HOST or not PORT:
-    print("Missing required environment variable: HOST or PORT")
+    print("Missing required environment variable: API_HOST or API_PORT")
     sys.exit(1)
 PORT = int(PORT)
 cors_origin = os.getenv("CORS_ORIGIN")
