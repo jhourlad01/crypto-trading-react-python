@@ -17,7 +17,7 @@ source venv/bin/activate
 
 # Install requirements
 echo "Installing requirements..."
-pip install -r requirements.txt
+pip install --break-system-packages -r requirements.txt
 
 # Run the API server
 echo "Starting API server..."
